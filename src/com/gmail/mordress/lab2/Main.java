@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        File bookFile = new File("resources" + File.separator + "sometext.txt");
+        File bookFile = new File("resources" + File.separator + "sometext1.txt");
 
         ArrayList<String> listOfWords = new ArrayList<>();
         ArrayList<String> listOfProffers = new ArrayList<>();
