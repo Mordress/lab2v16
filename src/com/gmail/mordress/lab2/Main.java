@@ -12,7 +12,6 @@ public class Main {
     public static void main(String[] args) throws Exception {
         File bookFile = new File("resources" + File.separator + "sometext.txt");
 
-
         ArrayList<String> listOfWords = new ArrayList<>();
         ArrayList<String> listOfProffers = new ArrayList<>();
 
@@ -20,20 +19,22 @@ public class Main {
 
         while (scanner.hasNextLine()) {
             String[] s = scanner.nextLine().split("\\s+");
-            for (String s1 : s) {
-                listOfWords.add(s1);
+            for (String iter : s) {
+                listOfWords.add(iter);
             }
         }
+        scanner.close();
 
         /*for (String s : listOfWords) {
             System.out.println(s);
         }*/
+
         String temp = new String();
-        //Pattern pattern = Pattern.compile("[\\.!?]+");
+
         for (String iter : listOfWords) {
             temp += " " + iter;
             if (temp.charAt(temp.length() - 1) == '.' || temp.charAt(temp.length() - 1) == '?' || temp.charAt(temp.length() - 1) == '!') {
-                listOfProffers.add(temp);
+                listOfProffers.add(temp.trim());
                 temp = "";
             }
         }
@@ -41,7 +42,7 @@ public class Main {
             System.out.println(listOfProffer);
         }
 
-
+        //Pattern pattern = Pattern.compile("[\\.!?]+");
 
 
      /*   ArrayList<String> list = new ArrayList<>();
@@ -80,20 +81,11 @@ public class Main {
         }*/
 
 
-
-
-
-
         /*Предложения разбиваются с помощью:
 
         ([А-ЯA-Z]((т.п.|т.д.|пр.)|[^?!.\(]|\([^\)]*\))*[.?!])
         ((\d+\.\s*)*[А-ЯA-Z]((т.п.|т.д.|пр.)|[^?!.\(]|\([^\)]*\))*[.?!])
         Только если любые сокращения, кроме "т.д.", "т.п." и "пр." будут встречаться только в скобках.*/
-
-
-
-
-
 
 /*
         BufferedReader bufferedReader;
