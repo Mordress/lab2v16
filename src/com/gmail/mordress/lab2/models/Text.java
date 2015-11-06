@@ -1,5 +1,6 @@
 package com.gmail.mordress.lab2.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Text {
@@ -10,6 +11,7 @@ public class Text {
 
     private Text() {
         //TODO LOGIC HERE TO CREATE TEXT FROM FILE
+        proffersList = new ArrayList<>();
     }
 
     public static Text getInstance() {
@@ -26,4 +28,13 @@ public class Text {
     public void setProffersList(List<Proffer> proffersList) {
         this.proffersList = proffersList;
     }
+
+    public void addProffer(String input) {
+        proffersList.add(new Proffer(input));
+    }
+
+    public void printText() {
+
+    }
+
 }

@@ -5,6 +5,8 @@ package com.gmail.mordress.lab2;
 * ѕрограмма должна обрабатывать как отдельные слова адреса электронной почты, номера телефонов в формате 8(XXX)XXX-XX-XX.
 * 16. ¬ некотором предложении текста слова заданной длины заменить указанной подстрокой, длина которой может не совпадать с длиной слова.
 * */
+import com.gmail.mordress.lab2.models.Text;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,15 +17,16 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        File bookFile = new File("resources" + File.separator + "sometext1.txt");
+        File bookFile = new File("resources" + File.separator + "sometext.txt");
 
         ArrayList<String> listOfWords = new ArrayList<>();
         ArrayList<String> listOfProffers = new ArrayList<>();
 
         Scanner scanner = new Scanner(bookFile);
+        Pattern pattern = Pattern.compile("\\s+");
 
         while (scanner.hasNextLine()) {
-            String[] s = scanner.nextLine().split("\\s+");
+            String[] s = scanner.nextLine().split(pattern.toString());
             for (String iter : s) {
                 listOfWords.add(iter);
             }
@@ -43,9 +46,16 @@ public class Main {
                 temp = "";
             }
         }
-        for (String listOfProffer : listOfProffers) {
+        /*for (String listOfProffer : listOfProffers) {
             System.out.println(listOfProffer);
+        }*/
+
+
+        for (String s : listOfProffers) {
+            Text.getInstance().addProffer(s);
         }
+
+        System.out.println(Arrays.asList(Text.getInstance().getProffersList()));
 
         //Pattern pattern = Pattern.compile("[\\.!?]+");
 
