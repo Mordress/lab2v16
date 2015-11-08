@@ -1,4 +1,4 @@
-package com.gmail.mordress.lab2.models.words;
+package com.gmail.mordress.lab2.models;
 
 import java.util.ArrayList;
 import java.util.List;

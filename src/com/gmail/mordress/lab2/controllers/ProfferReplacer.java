@@ -1,7 +1,7 @@
-package com.gmail.mordress.lab2;
+package com.gmail.mordress.lab2.controllers;
 
-import com.gmail.mordress.lab2.models.words.Proffer;
-import com.gmail.mordress.lab2.models.words.Text;
+import com.gmail.mordress.lab2.models.Proffer;
+import com.gmail.mordress.lab2.models.Text;
 
 public class ProfferReplacer {
 

@@ -1,4 +1,4 @@
-package com.gmail.mordress.lab2.models.words;
+package com.gmail.mordress.lab2.models.emails;
 
 public class Email {
 

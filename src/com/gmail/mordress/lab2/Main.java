@@ -5,7 +5,8 @@ package com.gmail.mordress.lab2;
 * Программа должна обрабатывать как отдельные слова адреса электронной почты, номера телефонов в формате 8(XXX)XXX-XX-XX.
 * 16. В некотором предложении текста слова заданной длины заменить указанной подстрокой, длина которой может не совпадать с длиной слова.
 * */
-import com.gmail.mordress.lab2.models.words.Text;
+import com.gmail.mordress.lab2.controllers.ProfferReplacer;
+import com.gmail.mordress.lab2.models.Text;
 
 import java.io.*;
 import java.util.ArrayList;
