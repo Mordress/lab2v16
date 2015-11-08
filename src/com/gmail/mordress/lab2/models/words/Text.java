@@ -1,4 +1,4 @@
-package com.gmail.mordress.lab2.models;
+package com.gmail.mordress.lab2.models.words;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,6 @@ public class Text {
     private List<Proffer> proffersList;
 
     private Text() {
-        //TODO LOGIC HERE TO CREATE TEXT FROM FILE
         proffersList = new ArrayList<>();
     }
 
@@ -34,6 +33,22 @@ public class Text {
     }
 
     public void printText() {
+        for (Proffer proffer : proffersList) {
+            System.out.println(proffer);
+        }
+    }
+
+    public Proffer getProfferByNumber(int number) {
+        if (number < proffersList.size()) {
+             return proffersList.get(number);
+        }
+        return new Proffer("wrong index of proffers");
+    }
+
+    public void setProffer(Proffer proffer, int number) {
+        if (number < proffersList.size()) {
+            proffersList.set(number, proffer);
+        }
 
     }
 
