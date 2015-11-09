@@ -2,8 +2,8 @@ package com.gmail.mordress.lab2.controllers;
 
 import com.gmail.mordress.lab2.models.Text;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,25 +11,31 @@ import java.util.Scanner;
 
 public class TextCreator {
 
-    private File txtFile;
+    private InputStreamReader reader;
 
     private List<String> listOfWords;
 
     private List<String> listOfProffers;
 
-    public TextCreator(File txtFile) {
-        this.txtFile = txtFile;
+    public TextCreator(InputStreamReader reader) {
+        this.reader = reader;
         listOfWords = new ArrayList<>();
         listOfProffers = new ArrayList<>();
     }
 
-    public void createText() throws FileNotFoundException {
-        Scanner scanner = new Scanner(txtFile);
+    public void createText() {
+        Scanner scanner = new Scanner(reader);
         while (scanner.hasNextLine()) {
             String[] s = scanner.nextLine().split("\\s+");
             Collections.addAll(listOfWords, s);
         }
-        scanner.close();
+
+        try {
+            scanner.close();
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         String temp = new String();
         for (String iter : listOfWords) {

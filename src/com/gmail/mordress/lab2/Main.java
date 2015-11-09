@@ -11,8 +11,8 @@ import com.gmail.mordress.lab2.helpers.Constants;
 import com.gmail.mordress.lab2.models.Text;
 import com.gmail.mordress.lab2.models.emails.EmailStorage;
 import com.gmail.mordress.lab2.models.phones.PhoneStorage;
-import java.io.File;
-import java.io.FileNotFoundException;
+
+import java.io.*;
 
 public class Main {
 
@@ -20,11 +20,14 @@ public class Main {
 
         try {
             File bookFile = new File("resources" + File.separator + "sometext.txt");
-            TextCreator textCreator = new TextCreator(bookFile);
+            InputStreamReader reader = new InputStreamReader(new FileInputStream(bookFile), "utf-8");
+            TextCreator textCreator = new TextCreator(reader);
             textCreator.createText();
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException|UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+
+
 
         ProfferReplacer profferReplacer = new ProfferReplacer(Constants.profferNumberToReplace,
                 Constants.wordReplacer,
