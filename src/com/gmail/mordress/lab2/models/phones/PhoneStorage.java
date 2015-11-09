@@ -13,7 +13,7 @@ public class PhoneStorage {
         phones = new ArrayList<>();
     }
 
-    public PhoneStorage getInstance() {
+    public static PhoneStorage getInstance() {
         if (instance == null) {
             instance = new PhoneStorage();
         }
@@ -26,5 +26,16 @@ public class PhoneStorage {
 
     public void setPhones(List<Phone> phones) {
         this.phones = phones;
+    }
+
+    public void addPhone(Phone phone) {
+        phones.add(phone);
+    }
+
+    public void printPhones() {
+        System.out.println("Parsed phones:");
+        for (Phone phone : phones) {
+            System.out.println(phone);
+        }
     }
 }

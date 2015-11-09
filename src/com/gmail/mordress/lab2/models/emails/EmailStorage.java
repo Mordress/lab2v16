@@ -1,6 +1,7 @@
 package com.gmail.mordress.lab2.models.emails;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class EmailStorage {
@@ -13,7 +14,7 @@ public class EmailStorage {
         emails = new ArrayList<>();
     }
 
-    public EmailStorage getInstance() {
+    public static EmailStorage getInstance() {
         if (instance == null) {
             instance = new EmailStorage();
         }
@@ -26,5 +27,16 @@ public class EmailStorage {
 
     public void setEmails(List<Email> emails) {
         this.emails = emails;
+    }
+
+    public void addEmail(Email email) {
+        emails.add(email);
+    }
+
+    public void printEmails() {
+        System.out.println("Parsed emails:");
+        for (Email email : emails) {
+            System.out.println(email);
+        }
     }
 }
