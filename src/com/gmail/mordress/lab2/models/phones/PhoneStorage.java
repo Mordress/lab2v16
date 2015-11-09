@@ -33,7 +33,7 @@ public class PhoneStorage {
     }
 
     public void printPhones() {
-        System.out.println("Parsed phones:");
+        System.out.println("\nParsed phones:");
         for (Phone phone : phones) {
             System.out.println(phone);
         }

@@ -5,65 +5,42 @@ package com.gmail.mordress.lab2;
 * Программа должна обрабатывать как отдельные слова адреса электронной почты, номера телефонов в формате 8(XXX)XXX-XX-XX.
 * 16. В некотором предложении текста слова заданной длины заменить указанной подстрокой, длина которой может не совпадать с длиной слова.
 * */
+
 import com.gmail.mordress.lab2.controllers.EmailParser;
 import com.gmail.mordress.lab2.controllers.PhoneParser;
 import com.gmail.mordress.lab2.controllers.ProfferReplacer;
+import com.gmail.mordress.lab2.controllers.TextCreator;
+import com.gmail.mordress.lab2.helpers.Constants;
 import com.gmail.mordress.lab2.models.Text;
 import com.gmail.mordress.lab2.models.emails.EmailStorage;
 import com.gmail.mordress.lab2.models.phones.PhoneStorage;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.regex.Pattern;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
-        File bookFile = new File("resources" + File.separator + "sometext.txt");
+    public static void main(String[] args) {
 
-        ArrayList<String> listOfWords = new ArrayList<>();
-        ArrayList<String> listOfProffers = new ArrayList<>();
-
-        Scanner scanner = new Scanner(bookFile);
-        Pattern pattern = Pattern.compile("\\s+");
-
-        while (scanner.hasNextLine()) {
-            String[] s = scanner.nextLine().split(pattern.toString());
-            for (String iter : s) {
-                listOfWords.add(iter);
-            }
-        }
-        scanner.close();
-        //TODO parser class
-        String temp = new String();
-
-        for (String iter : listOfWords) {
-            temp += " " + iter;
-            if (temp.charAt(temp.length() - 1) == '.' || temp.charAt(temp.length() - 1) == '?' || temp.charAt(temp.length() - 1) == '!') {
-                listOfProffers.add(temp.trim());
-                temp = "";
-            }
+        try {
+            File bookFile = new File("resources" + File.separator + "sometext.txt");
+            TextCreator textCreator = new TextCreator(bookFile);
+            textCreator.createText();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
-        for (String s : listOfProffers) {
-            Text.getInstance().addProffer(s);
-        }
-
-        Text.getInstance().printText();
-
-        System.out.println("-----------------");
-        ProfferReplacer profferReplacer = new ProfferReplacer(3, "+++++", 2);
+        ProfferReplacer profferReplacer = new ProfferReplacer(Constants.profferNumberToReplace,
+                Constants.wordReplacer,
+                Constants.wordReplaceLength);
         profferReplacer.replace();
 
         Text.getInstance().printText();
 
-        System.out.println("-----------------");
         EmailParser emailParser = new EmailParser();
         emailParser.parse(Text.getInstance());
         EmailStorage.getInstance().printEmails();
 
-        System.out.println("-----------------");
         PhoneParser phoneParser = new PhoneParser();
         phoneParser.parse(Text.getInstance());
         PhoneStorage.getInstance().printPhones();

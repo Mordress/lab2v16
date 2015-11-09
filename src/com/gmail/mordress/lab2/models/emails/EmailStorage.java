@@ -34,7 +34,7 @@ public class EmailStorage {
     }
 
     public void printEmails() {
-        System.out.println("Parsed emails:");
+        System.out.println("\nParsed emails:");
         for (Email email : emails) {
             System.out.println(email);
         }

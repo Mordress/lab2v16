@@ -1,5 +1,6 @@
 package com.gmail.mordress.lab2.controllers;
 
+import com.gmail.mordress.lab2.helpers.Constants;
 import com.gmail.mordress.lab2.models.Proffer;
 import com.gmail.mordress.lab2.models.Text;
 
@@ -21,7 +22,7 @@ public class ProfferReplacer {
     }
 
     public void replace() {
-        String[] words = replacedProffer.split("[!\\?\\,\"\'\\:\\-\\s]");
+        String[] words = replacedProffer.split(Constants.wordsSplitPattern);
 
         for (String word : words) {
             if (word.length() == lengthOfWord) {
