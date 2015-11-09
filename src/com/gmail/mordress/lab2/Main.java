@@ -6,10 +6,7 @@ package com.gmail.mordress.lab2;
 * 16. В некотором предложении текста слова заданной длины заменить указанной подстрокой, длина которой может не совпадать с длиной слова.
 * */
 
-import com.gmail.mordress.lab2.controllers.EmailParser;
-import com.gmail.mordress.lab2.controllers.PhoneParser;
-import com.gmail.mordress.lab2.controllers.ProfferReplacer;
-import com.gmail.mordress.lab2.controllers.TextCreator;
+import com.gmail.mordress.lab2.controllers.*;
 import com.gmail.mordress.lab2.helpers.Constants;
 import com.gmail.mordress.lab2.models.Text;
 import com.gmail.mordress.lab2.models.emails.EmailStorage;
@@ -37,11 +34,11 @@ public class Main {
 
         Text.getInstance().printText();
 
-        EmailParser emailParser = new EmailParser();
+        Parser emailParser = new EmailParser();
         emailParser.parse(Text.getInstance());
         EmailStorage.getInstance().printEmails();
 
-        PhoneParser phoneParser = new PhoneParser();
+        Parser phoneParser = new PhoneParser();
         phoneParser.parse(Text.getInstance());
         PhoneStorage.getInstance().printPhones();
     }

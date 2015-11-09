@@ -3,5 +3,16 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/resources/sometext.txt" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/com/gmail/mordress/lab2/Main.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/gmail/mordress/lab2/controllers/EmailParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/gmail/mordress/lab2/controllers/PhoneParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/gmail/mordress/lab2/controllers/ProfferReplacer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/gmail/mordress/lab2/controllers/TextCreator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/gmail/mordress/lab2/helpers/Constants.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/gmail/mordress/lab2/models/Proffer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/gmail/mordress/lab2/models/Text.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/gmail/mordress/lab2/models/emails/Email.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/gmail/mordress/lab2/models/emails/EmailStorage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/gmail/mordress/lab2/models/phones/Phone.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/gmail/mordress/lab2/models/phones/PhoneStorage.java" charset="UTF-8" />
   </component>
 </project>
