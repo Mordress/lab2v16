@@ -15,6 +15,9 @@ public class ProfferReplacer {
     private String replacer;
 
     public ProfferReplacer(int profferNumber, String replacer, int lengthOfWord) {
+        if (profferNumber < 0 || profferNumber > Text.getInstance().getProffersList().size()) {
+            throw new IllegalArgumentException("Wrong number of proffer");
+        }
         this.profferNumber = profferNumber;
         this.replacer = replacer;
         this.lengthOfWord = lengthOfWord;

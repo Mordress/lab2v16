@@ -39,10 +39,10 @@ public class Text {
     }
 
     public Proffer getProfferByNumber(int number) {
-        if (number < proffersList.size()) {
-             return proffersList.get(number);
+        if (number < 0 || number > proffersList.size()) {
+            return new Proffer("wrong index of proffers");
         }
-        return new Proffer("wrong index of proffers");
+        return proffersList.get(number);
     }
 
     public void setProffer(Proffer proffer, int number) {
