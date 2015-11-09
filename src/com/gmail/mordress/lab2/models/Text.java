@@ -46,7 +46,7 @@ public class Text {
     }
 
     public void setProffer(Proffer proffer, int number) {
-        if (number < proffersList.size()) {
+        if (number >= 0 && number < proffersList.size()) {
             proffersList.set(number, proffer);
         }
 

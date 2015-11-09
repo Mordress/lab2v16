@@ -20,14 +20,12 @@ public class Main {
 
         try {
             File bookFile = new File("resources" + File.separator + "sometext.txt");
-            InputStreamReader reader = new InputStreamReader(new FileInputStream(bookFile), "utf-8");
+            InputStreamReader reader = new InputStreamReader(new FileInputStream(bookFile), Constants.encoding);
             TextCreator textCreator = new TextCreator(reader);
             textCreator.createText();
-        } catch (FileNotFoundException|UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException|FileNotFoundException e) {
             e.printStackTrace();
         }
-
-
 
         ProfferReplacer profferReplacer = new ProfferReplacer(Constants.profferNumberToReplace,
                 Constants.wordReplacer,
