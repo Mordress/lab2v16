@@ -26,7 +26,6 @@ public class Main {
             e.printStackTrace();
         }
 
-        /*Replace in some proffer words, which length == some string*/
         ProfferReplacer profferReplacer = new ProfferReplacer(Constants.profferNumberToReplace,
                 Constants.wordReplacer,
                 Constants.wordReplaceLength);
