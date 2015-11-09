@@ -14,7 +14,6 @@ import com.gmail.mordress.lab2.helpers.Constants;
 import com.gmail.mordress.lab2.models.Text;
 import com.gmail.mordress.lab2.models.emails.EmailStorage;
 import com.gmail.mordress.lab2.models.phones.PhoneStorage;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 
@@ -30,6 +29,7 @@ public class Main {
             e.printStackTrace();
         }
 
+        /*Replace in some proffer words, which length == some string*/
         ProfferReplacer profferReplacer = new ProfferReplacer(Constants.profferNumberToReplace,
                 Constants.wordReplacer,
                 Constants.wordReplaceLength);
@@ -44,6 +44,5 @@ public class Main {
         PhoneParser phoneParser = new PhoneParser();
         phoneParser.parse(Text.getInstance());
         PhoneStorage.getInstance().printPhones();
-
     }
 }

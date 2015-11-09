@@ -5,6 +5,7 @@ import com.gmail.mordress.lab2.models.Text;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,9 +17,6 @@ public class TextCreator {
 
     private List<String> listOfProffers;
 
-
-
-
     public TextCreator(File txtFile) {
         this.txtFile = txtFile;
         listOfWords = new ArrayList<>();
@@ -29,9 +27,7 @@ public class TextCreator {
         Scanner scanner = new Scanner(txtFile);
         while (scanner.hasNextLine()) {
             String[] s = scanner.nextLine().split("\\s+");
-            for (String iter : s) {
-                listOfWords.add(iter);
-            }
+            Collections.addAll(listOfWords, s);
         }
         scanner.close();
 
