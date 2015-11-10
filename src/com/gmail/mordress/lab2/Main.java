@@ -30,7 +30,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        ProfferReplacer profferReplacer = new ProfferReplacer(Constants.profferNumberToReplace,
+        /*ProfferReplacer profferReplacer = new ProfferReplacer(Constants.profferNumberToReplace,
                 Constants.wordReplacer,
                 Constants.wordReplaceLength);
         profferReplacer.replace();
@@ -43,6 +43,6 @@ public class Main {
 
         Parser phoneParser = new PhoneParser();
         phoneParser.parse(Text.getInstance());
-        PhoneStorage.getInstance().printPhones();
+        PhoneStorage.getInstance().printPhones();*/
     }
 }
