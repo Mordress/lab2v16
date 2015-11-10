@@ -5,7 +5,7 @@ package com.gmail.mordress.lab2;
 * Программа должна обрабатывать как отдельные слова адреса электронной почты, номера телефонов в формате 8(XXX)XXX-XX-XX.
 * 16. В некотором предложении текста слова заданной длины заменить указанной подстрокой, длина которой может не совпадать с длиной слова.
 *
-* TODO: Add english support, try refactor EmailStorage and PhoneStorage
+* TODO: try refactor EmailStorage and PhoneStorage, add comments and Java code conventions
 *
 * */
 
@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            File bookFile = new File("resources" + File.separator + "sometext.txt");
+            File bookFile = new File("resources" + File.separator + "sometextRU.txt");
             InputStreamReader reader = new InputStreamReader(new FileInputStream(bookFile), Constants.encoding);
             TextCreator textCreator = new TextCreator(reader);
             textCreator.createText();

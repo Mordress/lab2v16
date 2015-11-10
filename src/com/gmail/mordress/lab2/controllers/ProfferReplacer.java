@@ -26,10 +26,11 @@ public class ProfferReplacer {
 
     public void replace() {
         String[] words = replacedProffer.split(Constants.wordsSplitPattern);
-
         for (String word : words) {
             if (word.length() == lengthOfWord) {
-                replacedProffer = replacedProffer.replace(word, replacer);
+                replacedProffer = replacedProffer.replace(" " + word, " " + replacer);
+                replacedProffer = replacedProffer.replace(word + " ", replacer + " ");
+
             }
         }
         Text.getInstance().setProffer(new Proffer(replacedProffer), profferNumber);
