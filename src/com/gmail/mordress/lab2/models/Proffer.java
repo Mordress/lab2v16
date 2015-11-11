@@ -5,6 +5,7 @@ import com.gmail.mordress.lab2.models.emails.Email;
 import com.gmail.mordress.lab2.models.phones.Phone;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,28 +19,27 @@ public class Proffer {
     private List<Phone> phones;
 
     public Proffer(String input) {
-        if (input.matches(Constants.emailPattern)) {
-            emails = new ArrayList<>();
-            Pattern pattern = Pattern.compile(Constants.emailPattern);
-            Matcher matcher = pattern.matcher(input);
-            while (matcher.find()) {
-                emails.add(new Email(matcher.group()));
-            }
-            for (Email e : emails) {
-                input = input.replace(e.getWord(), Constants.emailToken);
-            }
+        Pattern patternEmail = Pattern.compile(Constants.emailPattern);
+        Matcher matcherEmail = patternEmail.matcher(input);
+        emails = new ArrayList<>();
+        while (matcherEmail.find()) {
+            emails.add(new Email(matcherEmail.group()));
         }
-        if (input.matches(Constants.phonePattern)) {
-            phones = new ArrayList<>();
-            Pattern pattern = Pattern.compile(Constants.phonePattern);
-            Matcher matcher = pattern.matcher(input);
-            while (matcher.find()) {
-                phones.add(new Phone(matcher.group()));
-            }
-            for (Phone p : phones) {
-                input = input.replace(p.getWord(), Constants.phoneToken);
-            }
+        for (Email e : emails) {
+            input = input.replace(e.toString(), Constants.emailToken);
         }
+        Pattern patternPhone = Pattern.compile(Constants.phonePattern);
+        Matcher matcherPhone = patternPhone.matcher(input);
+        phones = new ArrayList<>();
+        while (matcherPhone.find()) {
+            phones.add(new Phone(matcherPhone.group()));
+        }
+        for (Phone p : phones) {
+            input = input.replace(p.toString(), Constants.phoneToken);
+        }
+
+
+
 
         lexems = new ArrayList<>();
         StringBuilder buffer = new StringBuilder();
@@ -53,6 +53,23 @@ public class Proffer {
                 lexems.add(new PunctuationMark(input.charAt(i)));
             } else {
                 buffer.append(input.charAt(i));
+            }
+        }
+
+
+
+        for (int i = 0, j = 0; i < lexems.size() ; i++) {
+            if (j <= emails.size()) {
+                if (lexems.get(i) instanceof Word && ((Word) lexems.get(i)).getWord().equals(Constants.emailToken)) {
+                    lexems.set(i, emails.get(j++));
+                }
+            }
+        }
+        for (int i = 0, j = 0; i < lexems.size() ; i++) {
+            if (j <= phones.size()) {
+                if (lexems.get(i) instanceof Word && ((Word) lexems.get(i)).getWord().equals(Constants.phoneToken)) {
+                    lexems.set(i, phones.get(j++));
+                }
             }
         }
 
@@ -74,7 +91,7 @@ public class Proffer {
         return  (c == ',' || c == ';' || c == '!' || c == '?'
                 || c == '-' || c == '>' || c == '<' || c == '='
                 || c == '+' || c == ':' || c == '(' || c == ')'
-                || c == '{' || c == '}' || c == '[' || c == ']' || c == ' ');
+                || c == '{' || c == '}' || c == '[' || c == ']' || c == ' ' || c == '…');
     }
 
     @Override
@@ -90,6 +107,8 @@ public class Proffer {
         for (Lexem lexem : lexems) {
             System.out.println(lexem + " - " + lexem.getClass());
             System.out.println();
+            //System.out.println("email.length = " + emails.size());
+            //System.out.println("phone.length = " + phones.size());
         }
     }
 }

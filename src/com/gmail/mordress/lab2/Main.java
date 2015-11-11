@@ -41,7 +41,7 @@ public class Main {
         // ...
         System.out.println("\u2026");
 
-        //Text.getInstance().getProfferByNumber(Text.getInstance().getCountOfProffers() - 2).debug();
+        Text.getInstance().getProfferByNumber(Text.getInstance().getCountOfProffers() - 2).debug();
         /*
         Parser emailParser = new EmailParser();
         emailParser.parse(Text.getInstance());
