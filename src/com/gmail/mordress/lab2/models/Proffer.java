@@ -52,4 +52,11 @@ public class Proffer {
         }
         return builder.toString();
     }
+
+    public void debug() {
+        for (Lexem lexem : lexems) {
+            System.out.println(lexem + " - " + lexem.getClass());
+            System.out.println();
+        }
+    }
 }

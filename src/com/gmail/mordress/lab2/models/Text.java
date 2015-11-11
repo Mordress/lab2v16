@@ -52,5 +52,8 @@ public class Text {
 
     }
 
+    public int getCountOfProffers() {
+        return proffersList.size();
+    }
 
 }
