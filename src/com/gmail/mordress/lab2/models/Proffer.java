@@ -5,7 +5,6 @@ import com.gmail.mordress.lab2.models.emails.Email;
 import com.gmail.mordress.lab2.models.phones.Phone;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,12 +13,70 @@ public class Proffer {
 
     private List<Lexem> lexems;
 
-    private List<Email> emails;
-
-    private List<Phone> phones;
-
     public Proffer(String input) {
-        Pattern patternEmail = Pattern.compile(Constants.emailPattern);
+        lexems = new ArrayList<>();
+        Pattern emailPat = Pattern.compile(Constants.emailPattern);
+        Pattern phonePat = Pattern.compile(Constants.phonePattern);
+        Pattern wordPat = Pattern.compile(Constants.wordPattern);
+        Pattern markPat = Pattern.compile(Constants.markPattern);
+        Pattern spacePat = Pattern.compile(Constants.whiteSpacePattern);
+
+        while (!input.equals("")) {
+            Matcher emailMatcher = emailPat.matcher(input);
+            if (emailMatcher.find()) {
+                String buffer = emailMatcher.group();
+                lexems.add(new Email(buffer));
+                input = input.substring(buffer.length());
+                continue;
+            }
+
+            Matcher phoneMatcher = phonePat.matcher(input);
+            if (phoneMatcher.find()) {
+                String buffer = phoneMatcher.group();
+                lexems.add(new Phone(buffer));
+                input = input.substring(buffer.length());
+                continue;
+            }
+
+            Matcher wordMatcher = wordPat.matcher(input);
+            if (wordMatcher.find()) {
+                String buffer = wordMatcher.group();
+                lexems.add(new Word(buffer));
+                input = input.substring(buffer.length());
+                continue;
+            }
+
+            Matcher markMatcher = markPat.matcher(input);
+            if (markMatcher.find()) {
+                String buffer = markMatcher.group();
+                lexems.add(new PunctuationMark(buffer));
+                input = input.substring(buffer.length());
+                continue;
+            }
+
+            Matcher spaceMatcher = spacePat.matcher(input);
+            if (spaceMatcher.find()) {
+                String buffer = spaceMatcher.group();
+                lexems.add(new WhiteSpace());
+                input = input.substring(buffer.length());
+                continue;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*Pattern patternEmail = Pattern.compile(Constants.emailPattern);
         Matcher matcherEmail = patternEmail.matcher(input);
         emails = new ArrayList<>();
         while (matcherEmail.find()) {
@@ -72,7 +129,7 @@ public class Proffer {
                 }
             }
         }
-
+    */
     }
 
     public List<Lexem> getLexems() {

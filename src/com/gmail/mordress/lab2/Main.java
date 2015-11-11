@@ -30,10 +30,12 @@ public class Main {
             e.printStackTrace();
         }
 
+/*
         ProfferReplacer profferReplacer = new ProfferReplacer(Constants.profferNumberToReplace,
                 Constants.wordReplacer,
                 Constants.wordReplaceLength);
         profferReplacer.replace();
+*/
 
         Text.getInstance().printText();
 
@@ -41,7 +43,7 @@ public class Main {
         // ...
         System.out.println("\u2026");
 
-        Text.getInstance().getProfferByNumber(Text.getInstance().getCountOfProffers() - 2).debug();
+        //Text.getInstance().getProfferByNumber(Text.getInstance().getCountOfProffers() - 2).debug();
         /*
         Parser emailParser = new EmailParser();
         emailParser.parse(Text.getInstance());

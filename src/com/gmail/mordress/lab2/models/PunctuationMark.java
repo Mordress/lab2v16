@@ -2,17 +2,17 @@ package com.gmail.mordress.lab2.models;
 
 public class PunctuationMark extends Lexem{
 
-    private Character mark;
+    private String mark;
 
-    public PunctuationMark(Character mark) {
+    public PunctuationMark(String mark) {
         this.mark = mark;
     }
 
-    public Character getMark() {
+    public String getMark() {
         return mark;
     }
 
-    public void setMark(Character mark) {
+    public void setMark(String mark) {
         this.mark = mark;
     }
 

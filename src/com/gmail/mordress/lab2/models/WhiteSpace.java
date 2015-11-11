@@ -2,9 +2,9 @@ package com.gmail.mordress.lab2.models;
 
 public class WhiteSpace extends Lexem {
 
-    private final Character space = ' ';
+    private final String space = " ";
 
-    public Character getSpace() {
+    public String getSpace() {
         return space;
     }
 
