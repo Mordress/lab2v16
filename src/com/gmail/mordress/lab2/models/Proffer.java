@@ -12,14 +12,14 @@ public class Proffer {
         StringBuilder buffer = new StringBuilder();
         input = input.trim();
         for (int i = 0; i < input.length() ; i++) {
-            if (!isPunctuationMark(input.charAt(i))) {
-                buffer.append(input.charAt(i));
-            } else {
+            if (isPunctuationMark(input.charAt(i)) || (input.charAt(i) == '.' && i == input.length() - 1)) {
                 if (buffer.length() != 0) {
                     lexems.add(new Word(buffer.toString()));
                     buffer = new StringBuilder();
                 }
                 lexems.add(new PunctuationMark(input.charAt(i)));
+            } else {
+                buffer.append(input.charAt(i));
             }
         }
 
@@ -41,7 +41,7 @@ public class Proffer {
         return  (c == ',' || c == ';' || c == '!' || c == '?'
                 || c == '-' || c == '>' || c == '<' || c == '='
                 || c == '+' || c == ':' || c == '(' || c == ')'
-                || c == '{' || c == '}' || c == '[' || c == ']' || c == ' ' || c == '.');
+                || c == '{' || c == '}' || c == '[' || c == ']' || c == ' ');
     }
 
     @Override
