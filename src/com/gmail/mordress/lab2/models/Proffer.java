@@ -12,15 +12,17 @@ public class Proffer {
         StringBuilder buffer = new StringBuilder();
         input = input.trim();
         for (int i = 0; i < input.length() ; i++) {
-            if (isPunctuationMark(input.charAt(i))) {
-                lexems.add(new PunctuationMark(input.charAt(i)));
-            } else if (input.charAt(i) == ' ') {
-                lexems.add(new Word(buffer.toString()));
-                lexems.add(new WhiteSpace());
-            } else {
+            if (!isPunctuationMark(input.charAt(i))) {
                 buffer.append(input.charAt(i));
+            } else {
+                if (buffer.length() != 0) {
+                    lexems.add(new Word(buffer.toString()));
+                    buffer = new StringBuilder();
+                }
+                lexems.add(new PunctuationMark(input.charAt(i)));
             }
         }
+
     }
 
     public List<Lexem> getLexems() {
@@ -31,10 +33,23 @@ public class Proffer {
         this.lexems = lexems;
     }
 
+    public void updateLexem(int index, Lexem newLexem) {
+        lexems.set(index, newLexem);
+    }
+
     private boolean isPunctuationMark(char c) {
         return  (c == ',' || c == ';' || c == '!' || c == '?'
                 || c == '-' || c == '>' || c == '<' || c == '='
-                || c == '+' || c == ':');
+                || c == '+' || c == ':' || c == '(' || c == ')'
+                || c == '{' || c == '}' || c == '[' || c == ']' || c == ' ' || c == '.');
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (Lexem lexem : lexems) {
+            builder.append(lexem);
+        }
+        return builder.toString();
+    }
 }

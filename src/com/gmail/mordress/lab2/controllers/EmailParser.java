@@ -1,3 +1,4 @@
+/*
 package com.gmail.mordress.lab2.controllers;
 
 import com.gmail.mordress.lab2.helpers.Constants;
@@ -20,3 +21,4 @@ public class EmailParser extends Parser{
 
     }
 }
+*/

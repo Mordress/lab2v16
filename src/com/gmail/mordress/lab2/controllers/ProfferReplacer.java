@@ -1,8 +1,12 @@
 package com.gmail.mordress.lab2.controllers;
 
 import com.gmail.mordress.lab2.helpers.Constants;
+import com.gmail.mordress.lab2.models.Lexem;
 import com.gmail.mordress.lab2.models.Proffer;
 import com.gmail.mordress.lab2.models.Text;
+import com.gmail.mordress.lab2.models.Word;
+
+import java.util.Iterator;
 
 public class ProfferReplacer {
 
@@ -10,7 +14,8 @@ public class ProfferReplacer {
 
     private int lengthOfWord;
 
-    private String replacedProffer;
+    /*заменяемое предложение*/
+    private Proffer replacedProffer;
 
     private String replacer;
 
@@ -21,19 +26,18 @@ public class ProfferReplacer {
         this.profferNumber = profferNumber;
         this.replacer = replacer;
         this.lengthOfWord = lengthOfWord;
-        replacedProffer = Text.getInstance().getProfferByNumber(profferNumber).getProffer();
+        replacedProffer = Text.getInstance().getProfferByNumber(profferNumber);
     }
 
     public void replace() {
-        String[] words = replacedProffer.split(Constants.wordsSplitPattern);
-        for (String word : words) {
-            if (word.length() == lengthOfWord) {
-                replacedProffer = replacedProffer.replace(" " + word, " " + replacer);
-                replacedProffer = replacedProffer.replace(word + " ", replacer + " ");
-
+        for (int i = 0; i < replacedProffer.getLexems().size() ; i++) {
+            if (replacedProffer.getLexems().get(i) instanceof Word
+                    && ((Word) replacedProffer.getLexems().get(i)).getWord().length() == lengthOfWord) {
+                replacedProffer.updateLexem(i, new Word(replacer));
             }
         }
-        Text.getInstance().setProffer(new Proffer(replacedProffer), profferNumber);
+
+        Text.getInstance().setProffer(replacedProffer, profferNumber);
     }
 
 }

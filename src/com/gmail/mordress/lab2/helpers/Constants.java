@@ -12,10 +12,10 @@ public abstract class Constants {
     /*String, which replace some strings in proffer*/
     public static final String wordReplacer = "=)";
 
-    public static final int wordReplaceLength = 3;
+    public static final int wordReplaceLength = 1;
 
     /*Number of proffer, which needs to replace words*/
-    public static final int profferNumberToReplace = 2;
+    public static final int profferNumberToReplace = 6;
 
     public static final String encoding = "utf-8";
 
