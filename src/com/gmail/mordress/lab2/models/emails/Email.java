@@ -1,23 +1,10 @@
 package com.gmail.mordress.lab2.models.emails;
 
-public class Email {
+import com.gmail.mordress.lab2.models.Word;
 
-    private String email;
+public class Email extends Word{
 
-    public Email(String email) {
-        this.email = email;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return email;
+    public Email(String word) {
+        super(word);
     }
 }

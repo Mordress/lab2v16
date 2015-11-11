@@ -5,7 +5,11 @@ public abstract class Constants {
 
     public static final String emailPattern = "[-\\w.]+@([A-z0-9][-A-z0-9]+\\.)+[A-z]{2,4}";
 
+    public static final String emailToken = "PUT.EMAIL.HERE";
+
     public static final String phonePattern = "8\\(\\d{3}\\)\\d{3}\\-\\d{2}\\-\\d{2}";
+
+    public static final String phoneToken = "PUT.PHONE.HERE";
 
     public static final String wordsSplitPattern = "[!\\?\\,\"\'\\:\\-\\/\\;\\s+]+";
 

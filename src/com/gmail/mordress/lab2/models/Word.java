@@ -2,7 +2,7 @@ package com.gmail.mordress.lab2.models;
 
 public class Word extends Lexem{
 
-    private String word;
+    protected String word;
 
     public Word(String word) {
         this.word = word;

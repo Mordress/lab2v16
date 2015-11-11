@@ -1,23 +1,10 @@
 package com.gmail.mordress.lab2.models.phones;
 
-public class Phone   {
+import com.gmail.mordress.lab2.models.Word;
 
-    private String phone;
+public class Phone extends Word {
 
-    public Phone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    @Override
-    public String toString() {
-        return phone;
+    public Phone(String word) {
+        super(word);
     }
 }
