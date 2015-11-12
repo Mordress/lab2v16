@@ -1,8 +1,12 @@
 package com.gmail.mordress.lab2.models;
 
 import com.gmail.mordress.lab2.helpers.Constants;
-import com.gmail.mordress.lab2.models.emails.Email;
-import com.gmail.mordress.lab2.models.phones.Phone;
+import com.gmail.mordress.lab2.models.lexems.PunctuationMark;
+import com.gmail.mordress.lab2.models.lexems.WhiteSpace;
+import com.gmail.mordress.lab2.models.lexems.words.Email;
+import com.gmail.mordress.lab2.models.lexems.Lexem;
+import com.gmail.mordress.lab2.models.lexems.words.Word;
+import com.gmail.mordress.lab2.models.lexems.words.Phone;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +61,7 @@ public class Proffer {
             Matcher spaceMatcher = spacePat.matcher(input);
             if (spaceMatcher.find()) {
                 String buffer = spaceMatcher.group();
-                lexems.add(new WhiteSpace());
+                lexems.add(new WhiteSpace(buffer));
                 input = input.substring(buffer.length());
             }
         }
@@ -82,5 +86,12 @@ public class Proffer {
             builder.append(lexem);
         }
         return builder.toString();
+    }
+
+    public void printClassNames() {
+        System.out.println();
+        for (Lexem l : lexems) {
+            System.out.println(l + " - " + l.getClass().getSimpleName() + " class");
+        }
     }
 }

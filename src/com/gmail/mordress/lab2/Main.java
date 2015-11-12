@@ -20,6 +20,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        /*reading file and create Text*/
         try {
             File bookFile = new File("resources" + File.separator + "sometextRU.txt");
             InputStreamReader reader = new InputStreamReader(new FileInputStream(bookFile), Constants.encoding);
@@ -29,6 +30,7 @@ public class Main {
             e.printStackTrace();
         }
 
+        /*replacing words in Proffer*/
         ProfferReplacer profferReplacer = new ProfferReplacer(Constants.profferNumberToReplace,
                 Constants.wordReplacer,
                 Constants.wordReplaceLength);
@@ -36,7 +38,6 @@ public class Main {
 
         Text.getInstance().printText();
 
-        System.out.println("\u2026");
-        //Text.getInstance().getProfferByNumber(Text.getInstance().getCountOfProffers() - 2).debug();
+        Text.getInstance().getProfferByNumber(Text.getInstance().getCountOfProffers() - 2).printClassNames();
     }
 }

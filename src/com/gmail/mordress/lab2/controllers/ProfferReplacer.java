@@ -1,12 +1,8 @@
 package com.gmail.mordress.lab2.controllers;
 
-import com.gmail.mordress.lab2.helpers.Constants;
-import com.gmail.mordress.lab2.models.Lexem;
 import com.gmail.mordress.lab2.models.Proffer;
 import com.gmail.mordress.lab2.models.Text;
-import com.gmail.mordress.lab2.models.Word;
-
-import java.util.Iterator;
+import com.gmail.mordress.lab2.models.lexems.words.Word;
 
 public class ProfferReplacer {
 
@@ -32,7 +28,7 @@ public class ProfferReplacer {
     public void replace() {
         for (int i = 0; i < replacedProffer.getLexems().size() ; i++) {
             if (replacedProffer.getLexems().get(i) instanceof Word
-                    && ((Word) replacedProffer.getLexems().get(i)).getWord().length() == lengthOfWord) {
+                    && (replacedProffer.getLexems().get(i)).getValue().length() == lengthOfWord) {
                 replacedProffer.updateLexem(i, new Word(replacer));
             }
         }
