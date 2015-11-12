@@ -4,16 +4,11 @@ package com.gmail.mordress.lab2;
 * Во всех задачах с формированием текста заменять табуляции и последовательности пробелов одним пробелом.
 * Программа должна обрабатывать как отдельные слова адреса электронной почты, номера телефонов в формате 8(XXX)XXX-XX-XX.
 * 16. В некотором предложении текста слова заданной длины заменить указанной подстрокой, длина которой может не совпадать с длиной слова.
-*
-*
-*
 * */
 
 import com.gmail.mordress.lab2.controllers.*;
 import com.gmail.mordress.lab2.helpers.Constants;
 import com.gmail.mordress.lab2.models.Text;
-
-
 import java.io.*;
 
 public class Main {
