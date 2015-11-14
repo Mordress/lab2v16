@@ -36,7 +36,6 @@ public class TextCreator {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         String temp = new String();
         for (String iter : listOfWords) {
             temp += " " + iter;
@@ -45,7 +44,6 @@ public class TextCreator {
                 temp = "";
             }
         }
-
         for (String s : listOfProffers) {
             Text.getInstance().addProffer(s);
         }

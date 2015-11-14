@@ -32,7 +32,5 @@ public class Main {
         profferReplacer.replace();
 
         Text.getInstance().printText();
-
-        Text.getInstance().getProfferByNumber(Text.getInstance().getCountOfProffers() - 2).printClassNames();
     }
 }

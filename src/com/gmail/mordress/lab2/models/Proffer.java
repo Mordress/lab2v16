@@ -7,7 +7,6 @@ import com.gmail.mordress.lab2.models.lexems.words.Email;
 import com.gmail.mordress.lab2.models.lexems.Lexem;
 import com.gmail.mordress.lab2.models.lexems.words.Word;
 import com.gmail.mordress.lab2.models.lexems.words.Phone;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -86,12 +85,5 @@ public class Proffer {
             builder.append(lexem);
         }
         return builder.toString();
-    }
-
-    public void printClassNames() {
-        System.out.println();
-        for (Lexem l : lexems) {
-            System.out.println(l + " - " + l.getClass().getSimpleName() + " class");
-        }
     }
 }

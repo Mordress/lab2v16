@@ -1,6 +1,5 @@
 package com.gmail.mordress.lab2.helpers;
 
-
 public abstract class Constants {
 
     public static final String emailPattern = "^[-\\w\\.]+@([A-z0-9][-A-z0-9]+\\.)+[A-z]{2,4}";
@@ -22,5 +21,4 @@ public abstract class Constants {
     public static final int profferNumberToReplace = 7;
 
     public static final String encoding = "utf-8";
-
 }

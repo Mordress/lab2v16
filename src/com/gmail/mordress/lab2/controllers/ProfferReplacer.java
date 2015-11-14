@@ -32,8 +32,6 @@ public class ProfferReplacer {
                 replacedProffer.updateLexem(i, new Word(replacer));
             }
         }
-
         Text.getInstance().setProffer(replacedProffer, profferNumber);
     }
-
 }
